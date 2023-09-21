@@ -1,0 +1,22 @@
+html
+    head
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        title Login | Datanalysis
+    body
+        link(rel = "stylesheet" href = "./css/loginstyle.css")
+        div.container-page#container-page
+            div.login-container
+                div#login-form
+                    div.row.mb-3
+                        label.col-sm-2.col-form-label(for="username-input") Usuario:
+                        div.col-sm-10
+                            input.form-control#username-input(type="text")
+                    div.row.mb-3
+                        label.col-sm-2.col-form-label(for="password-input") Contraseña:
+                        div.col-sm-10
+                            input.form-control#password-input(type="password")
+                    input#access-input(type="hidden" name="access" value="2")
+                    button.btn.btn-primary#submit-button(type="submit" style="display: block; margin: 0 auto;") Acceder
+        script(src="./javascript/login.js")
+                        

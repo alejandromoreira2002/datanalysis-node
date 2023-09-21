@@ -1,0 +1,66 @@
+html
+    head
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        script(src="https://kit.fontawesome.com/ba52fcc0fa.js" crossorigin="anonymous")
+        title Dashboard | Datanalysis
+    body
+        link(rel = "stylesheet" href = "./css/dashboardstyle.css")
+        div.navbar-container
+            nav.navbar.bg-dark.border-bottom.border-body(data-bs-theme="dark")
+                div.container-md
+                    a.navbar-brand(href="#") Registro de Usuarios
+        div.addRow-container#addRow-container(style = "display: none;")
+            div.addRow-content#addRow-content
+                div.modal-content
+                    div.modal-header.mh-style
+                        h1.modal-title.fs-5#exampleModalPopoversLabel Registrar nuevo usuario
+                        button.btn-close#btn-close(type="button" data-bs-dismiss="modal" aria-label="Close" onclick="cancelarOp()")
+                    div.modal-body.mb-style
+                        div#alerta-registro
+                        div.input-group.mb-3
+                            span.input-group-text#basic-addon1
+                                i.fa-regular.fa-user
+                            input.form-control#username-input(type="text" placeholder="Username" aria-label="Usuario" aria-describedby="basic-addon1")
+                        div.input-group.mb-3
+                            span.input-group-text#basic-addon1
+                                i.fa-regular.fa-envelope
+                            input.form-control#email-input(type="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1")
+                        div.input-group.mb-3
+                            span.input-group-text#basic-addon1
+                                i.fa-solid.fa-key
+                            input.form-control#password-input(type="password" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1")
+                        select.form-select#rol-select(aria-label="Default select example")
+                            option(selected disabled value="default") Seleccione un rol para este usuario
+                            option(value="user") Usuario
+                            option(value="admin") Administrador
+                    div.modal-footer.mf-style
+                        button.btn.btn-secondary(type="button" data-bs-dismiss="modal" style="margin: 0 10px;" onclick="cancelarOp()") Cancelar
+                        button.btn.btn-primary(type="button" onclick="guardarUsuario()") Guardar
+        div.body-container
+            h1 Historial de Usuarios
+            div.table-form#table-form
+                div.load-content#load-content
+                    div.spinner-border(role="status")
+                        span.visually-hidden Loading...
+                
+                div.button-container
+                    button.btn.btn-dark#add_row(type="button") Agregar Nuevo
+                div.search-container
+                    div.search-content
+                        div.container-fluid
+                            form.d-flex(role="search")
+                                input.form-control.me-2(type="search" placeholder="Search" aria-label="Search")
+                                button.btn.btn-outline-success(type="submit") Buscar
+                div.table-container
+                    table.table.table-striped#table
+                        thead
+                            tr
+                                th(scope="col") ID
+                                th(scope="col") Usuario
+                                th(scope="col") Email
+                                th(scope="col") Rol
+                                th(scope="col") Creado en
+                        tbody#tableBody
+        div#resultado
+        script(src="./javascript/dashboard.js")
